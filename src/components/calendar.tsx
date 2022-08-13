@@ -5,7 +5,7 @@ import "react-nice-dates/build/style.css";
 
 /*
 interface Props = {
-    test
+    test 2
 } */
 
 const Calendar = () => {
