@@ -11,13 +11,6 @@ interface Props = {
 const Calendar = () => {
   const [date, setDate] = useState<any>(new Date());
 
-  const timeInputProps = {
-    date,
-    format: "HH:mm",
-    locale: enGB,
-    onDateChange: setDate,
-  };
-
   return (
     <div style={{ display: "flex" }}>
       <DatePicker
@@ -34,11 +27,6 @@ const Calendar = () => {
           />
         )}
       </DatePicker>
-      <input
-        className="input"
-        style={{ marginLeft: 16, width: 80 }}
-        {...timeInputProps}
-      />
     </div>
   );
 };
