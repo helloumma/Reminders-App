@@ -1,18 +1,13 @@
-import { useState } from "react";
 import { enGB } from "date-fns/locale";
 import { DatePicker } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
 
-// TO DO: switch to TypeScript
+interface Props {
+  date: Date | any;
+  setDate: Date | any;
+}
 
-/*
-interface Props = {
-    test 2
-} */
-
-const Calendar = () => {
-  const [date, setDate] = useState<any>(new Date());
-
+const Calendar = ({ date, setDate }: Props) => {
   return (
     <DatePicker
       date={date}

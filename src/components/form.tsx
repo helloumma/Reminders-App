@@ -1,15 +1,37 @@
+import { useState } from "react";
 import Calendar from "./calendar";
 
-const Form = () => (
-  <form>
-    <label>time</label>
-    <input />
-    <label>date</label>
-    <Calendar />
-    <label>reminder</label>
-    <input />
-    <button>submit</button>
-  </form>
-);
+interface Props {
+  handleChange: Function;
+  handleSubmit: Function;
+}
+
+const Form = ({ handleChange, handleSubmit }: Props) => {
+  const [date, setDate] = useState<Date>();
+  console.log(date);
+  return (
+    <form>
+      <label>time</label>
+      <input
+        className=""
+        id=""
+        type="text"
+        onChange={(e) => handleChange(e)}
+        name="time"
+      />
+      <label>date</label>
+      <Calendar date={date} setDate={setDate} />
+      <label>reminder</label>
+      <input
+        className=""
+        id=""
+        type="text"
+        onChange={(e) => handleChange(e)}
+        name="reminder"
+      />
+      <button onSubmit={(e) => handleSubmit(e)}>submit</button>
+    </form>
+  );
+};
 
 export default Form;
