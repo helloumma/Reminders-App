@@ -8,7 +8,6 @@ interface Props {
 
 const Form = ({ handleChange, handleSubmit }: Props) => {
   const [date, setDate] = useState<Date>();
-  console.log(date);
   return (
     <form>
       <label>time</label>
@@ -29,7 +28,9 @@ const Form = ({ handleChange, handleSubmit }: Props) => {
         onChange={(e) => handleChange(e)}
         name="reminder"
       />
-      <button onSubmit={(e) => handleSubmit(e)}>submit</button>
+      <button type="submit" onSubmit={(e) => handleSubmit(e)}>
+        submit
+      </button>
     </form>
   );
 };
