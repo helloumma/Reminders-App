@@ -9,7 +9,7 @@ interface Values {
 }
 
 const App = () => {
-  const [values, setValues] = useState<Values>({
+  const [vals, setVals] = useState<Values>({
     time: "",
     date: "",
     reminder: "",
@@ -17,7 +17,7 @@ const App = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log(e.target.value);
-    setValues((prevState) => ({
+    setVals((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -25,18 +25,26 @@ const App = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit");
-    console.log({ values });
-    const response = await fetch("http://localhost:3001/send", {
+    console.log({ vals });
+    await fetch("http://localhost:3001/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ values }),
+      body: JSON.stringify({ vals }),
     })
       .then((res) => res.json())
+      .then(async (res) => {
+        const resData = await res;
+        console.log(resData);
+        if (resData.status === "success") {
+          alert("Message Sent");
+        } else if (resData.status === "fail") {
+          alert("Message failed to send");
+        }
+      })
       .then(() => {
-        setValues({
+        setVals({
           time: "",
           date: "",
           reminder: "",
@@ -46,7 +54,11 @@ const App = () => {
 
   return (
     <div>
-      <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Form
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        val={vals}
+      />
     </div>
   );
 };
