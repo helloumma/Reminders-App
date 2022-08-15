@@ -4,7 +4,7 @@ import "./App.scss";
 
 interface Values {
   time: string;
-  date: string;
+  date: any;
   reminder: string;
 }
 
@@ -19,12 +19,13 @@ const App = () => {
     // console.log(e.target.value);
     setValues((prevState) => ({
       ...prevState,
-      [e.target.value]: e.target.value,
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("submit");
     console.log({ values });
     const response = await fetch("http://localhost:3001/send", {
       method: "POST",
