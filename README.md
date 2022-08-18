@@ -1,6 +1,6 @@
 # Reminders App
 
-The reminders app is an app in which the user should be able to input a date, time and reminder, and recieve the reminder via an email at the specified time and ate.
+The reminders app is an app in which the user should be able to input a date, time and reminder, and recieve the reminder via an email at the specified time and date.
 
 ## 📋 Aims of App
 

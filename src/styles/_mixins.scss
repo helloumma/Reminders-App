@@ -1,0 +1,6 @@
+@use './colours.scss';
+@use './fonts.scss';
+
+@mixin theme($theme: $light-blue) {
+  background: $theme;
+}
