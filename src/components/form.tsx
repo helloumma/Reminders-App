@@ -1,6 +1,3 @@
-import { useState } from "react";
-import Calendar from "./calendar";
-
 interface Props {
   handleChange: Function;
   handleSubmit: Function;
@@ -8,7 +5,6 @@ interface Props {
 }
 
 const Form = ({ handleChange, handleSubmit, val }: Props) => {
-  //const [date, setDate] = useState<Date>();
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <label>time</label>
