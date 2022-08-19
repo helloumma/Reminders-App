@@ -1,14 +1,29 @@
-@use './colours.scss';
-@use './fonts.scss';
+@use './colours.scss' as * ;
+@use './fonts.scss' as * ;
 
-@mixin title($theme: $light-blue) {
-  background: $theme;
+
+@mixin page() {
+  padding: 0 20em 0 20em;
+}
+
+@mixin title() {
+  color: $dark-blue;
+  font-size: $large-font;
+  text-align: center;
 }
 
 @mixin form($theme: $dark-blue) {
-  input: $theme
+  input: $theme;
+  display: flex;
+  flex-direction: column;
 }
 
-@mixin submitButton($theme: $dark-blue) {
-  background: $theme
+@mixin submitButton() {
+  background: $dark-blue;
+  color: $light-blue;
+  padding: 1em;
+  border: none;
+  border-radius: 0.25em;
+  font-size: 1.5em;
+  font-weight:900;
 }

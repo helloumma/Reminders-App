@@ -6,7 +6,7 @@ interface Props {
 
 const Form = ({ handleChange, handleSubmit, val }: Props) => {
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)} className="form">
       <label>time</label>
       <input
         className=""
@@ -34,7 +34,9 @@ const Form = ({ handleChange, handleSubmit, val }: Props) => {
         name="reminder"
         value={val.reminder}
       />
-      <button type="submit">submit</button>
+      <button className="submitButton" type="submit">
+        SUBMIT
+      </button>
     </form>
   );
 };

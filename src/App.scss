@@ -1,4 +1,26 @@
-// font variables
+@use 'styles/mixins';
+@use 'styles/colours' as *;
 
-// colour variables
+body {
+  background: $light-blue;
+}
 
+.page {
+ @include mixins.page;
+}
+
+.title {
+  @include mixins.title
+}
+
+.form {
+  @include mixins.form
+}
+
+.submitButton {
+  @include mixins.submitButton
+}
+
+.submitButton:hover {
+  cursor: pointer;
+}
