@@ -1,6 +1,14 @@
 @use './colours.scss';
 @use './fonts.scss';
 
-@mixin theme($theme: $light-blue) {
+@mixin title($theme: $light-blue) {
   background: $theme;
+}
+
+@mixin form($theme: $dark-blue) {
+  input: $theme
+}
+
+@mixin submitButton($theme: $dark-blue) {
+  background: $theme
 }

@@ -4,7 +4,7 @@ import "./App.scss";
 
 interface Values {
   time: string;
-  date: any;
+  date: string;
   reminder: string;
 }
 
