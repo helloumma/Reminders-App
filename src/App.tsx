@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <div className="page">
-      <h1 className="title">REMINDERS</h1>
+      <h1 className="title">REMINDER</h1>
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
