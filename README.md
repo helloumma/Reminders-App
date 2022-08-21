@@ -23,3 +23,4 @@ The reminders app is an app in which the user should be able to input a date, ti
 
 - The app is able to send users reminders however functionality for specific time/date needs to be added
 - Testing
+- Validation
