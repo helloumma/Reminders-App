@@ -20,11 +20,15 @@
 
 @mixin labels() {
   color: $dark-blue;
-  font-weight: 900;
+  font-weight: $extra-bold;
 }
 
 @mixin inputs() {
   border: 1px solid $dark-blue;
+  color: $dark-blue;
+  width: 100%;
+  height: 2em;
+  border-radius:0.25em;
 }
 
 @mixin submitButton() {
@@ -34,6 +38,6 @@
   border: none;
   border-radius: 0.25em;
   font-size: 1.5em;
-  font-weight:900;
+  font-weight: $extra-bold;
   margin-top: 2em;
 }
