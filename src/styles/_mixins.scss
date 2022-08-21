@@ -18,6 +18,15 @@
   flex-direction: column;
 }
 
+@mixin labels() {
+  color: $dark-blue;
+  font-weight: 900;
+}
+
+@mixin inputs() {
+  border: 1px solid $dark-blue;
+}
+
 @mixin submitButton() {
   background: $dark-blue;
   color: $light-blue;
