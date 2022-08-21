@@ -6,7 +6,7 @@ The reminders app is an app in which the user should be able to input a date, ti
 
 - Enable users to be able to add date, time and reminders
 - The user should be able to recieve reminders through an email
-- The uesr should recieve the email at the given time and date
+- The user should recieve the email at the given time and date
 
 ## 👩‍💻 Technical Details
 
