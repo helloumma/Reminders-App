@@ -14,9 +14,9 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
       onSubmit={(e) => handleSubmit(e)}
       validationSchema={valSchema}
     >
-      {({ handleChange }) => {
+      {({ values }) => {
         return (
-          <Form className="form">
+          <Form className="form" onSubmit={(e) => handleSubmit(e)}>
             <span>
               <label>Time</label>
               <Field
@@ -41,13 +41,11 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
             </span>
             <span>
               <label>Reminder</label>
-              <input
-                className=""
-                id=""
+              <Field
                 type="text"
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
                 name="reminder"
-                value={val.reminder}
+                value={values.val && values.val.reminder}
               />
             </span>
             <button className="submitButton" type="submit">
