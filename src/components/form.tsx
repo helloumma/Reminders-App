@@ -13,27 +13,31 @@ const valSchema = Yup.object().shape({
   reminder: Yup.string().required("Reminder is required"),
 });
 
+// this needs to be the interface used in App.tsx
 const initalValues = {
   time: "",
   date: "",
-  email: "",
+  reminder: "",
 };
 
 const FormOutline = ({ handleChange, handleSubmit, val }: Props) => {
   return (
     <Formik
-      initialValues={initalValues}
+      initialValues={val}
       validationSchema={valSchema}
       onSubmit={(e) => handleSubmit(e)}
     >
       {(formik) => {
         const { errors, touched, isValid, dirty } = formik;
         return (
-          <form onSubmit={(e) => handleSubmit(e)} className="form">
+          <form className="form">
             <span>
-              <label>Time</label>
+              <label htmlFor="time">Time</label>
               <Field
-                className=""
+                helperText={
+                  errors.time && touched.time ? errors.time : "Enter time"
+                }
+                error={errors.time && touched.time ? true : false}
                 id=""
                 type="time"
                 onChange={(e: string) => handleChange(e)}
@@ -43,9 +47,9 @@ const FormOutline = ({ handleChange, handleSubmit, val }: Props) => {
             </span>
             <ErrorMessage name="time" component="span" className="error" />
             <span>
-              <label>Date</label>
+              <label htmlFor="date">Date</label>
               <Field
-                className=""
+                className={errors.date && touched.date ? "input-error" : null}
                 id=""
                 type="text"
                 onChange={(e: string) => handleChange(e)}
@@ -55,9 +59,11 @@ const FormOutline = ({ handleChange, handleSubmit, val }: Props) => {
             </span>
             <ErrorMessage name="date" component="span" className="error" />
             <span>
-              <label>Reminder</label>
+              <label htmlFor="reminder">Reminder</label>
               <Field
-                className=""
+                className={
+                  errors.reminder && touched.reminder ? "input-error" : null
+                }
                 id=""
                 type="text"
                 onChange={(e: string) => handleChange(e)}

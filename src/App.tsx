@@ -39,7 +39,7 @@ const App = () => {
         console.log(resData);
         if (resData.status === "success") {
           alert("Message Sent");
-          console.log(vals);
+          console.log("vals", vals);
         } else if (resData.status === "fail") {
           alert("Message failed to send");
         }

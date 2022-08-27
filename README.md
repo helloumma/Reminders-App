@@ -19,6 +19,12 @@ The reminders app is an app in which the user should be able to input a date, ti
 - `npm install`
 - `npm run start`
 
+## Setting Up Emails App
+
+- To be able to send emails, you will need to clone the `emails` repo
+- Please read the READ ME to set up the `emails` application
+- Change `port` accordingly
+
 ## 💭 Future Improvements
 
 - The app is able to send users reminders however functionality for specific time/date needs to be added
