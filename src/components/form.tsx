@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+// disable the button until all fields have a value in them
+
 interface Props {
   handleChange: Function;
   handleSubmit: Function;
@@ -21,24 +23,23 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
               <label>Time</label>
               <Field
                 id="time"
-                type="text"
-                onChange={(e: string) => handleChange(e)}
+                type="time"
+                onChange={handleChange}
                 name="time"
-                value={val.time}
+                value={values.val && values.val.time}
               />
             </span>
             <ErrorMessage name="time" component="span" className="error" />
             <span>
               <label>Date</label>
-              <input
-                className=""
-                id=""
-                type="text"
-                onChange={(e) => handleChange(e)}
+              <Field
+                type="date"
+                onChange={handleChange}
                 name="date"
-                value={val.date}
+                value={values.val && values.val.date}
               />
             </span>
+            <ErrorMessage name="date" component="span" className="error" />
             <span>
               <label>Reminder</label>
               <Field
@@ -48,6 +49,7 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
                 value={values.val && values.val.reminder}
               />
             </span>
+            <ErrorMessage name="reminder" component="span" className="error" />
             <button className="submitButton" type="submit">
               SUBMIT
             </button>

@@ -9,6 +9,7 @@ interface Values {
   reminder: string;
 }
 
+// ensure reminder is not empty
 const valSchema: Yup.SchemaOf<Values> = Yup.object().shape({
   time: Yup.string().required("required"),
   date: Yup.string().required("required"),
