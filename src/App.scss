@@ -41,3 +41,12 @@ input{
  input:focus-visible {
   outline: 1px solid $light-blue;
 }
+
+.input-error {
+  border-color: red;
+}
+
+.disabled-btn {
+  cursor: not-allowed;
+  background: rgba($dark-blue, 0.8);
+}

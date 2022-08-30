@@ -16,7 +16,7 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
       onSubmit={(e) => handleSubmit(e)}
       validationSchema={valSchema}
     >
-      {({ values }) => {
+      {({ values, errors, isValid, dirty }) => {
         return (
           <Form className="form" onSubmit={(e) => handleSubmit(e)}>
             <span>
@@ -26,6 +26,7 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
                 type="time"
                 onChange={handleChange}
                 name="time"
+                className={errors.time && "input-error"}
                 value={values.val && values.val.time}
               />
             </span>
@@ -36,6 +37,7 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
                 type="date"
                 onChange={handleChange}
                 name="date"
+                className={errors.date && "input-error"}
                 value={values.val && values.val.date}
               />
             </span>
@@ -46,11 +48,20 @@ const FormDetails = ({ handleChange, handleSubmit, val, valSchema }: Props) => {
                 type="text"
                 onChange={handleChange}
                 name="reminder"
+                className={errors.reminder && "input-error"}
                 value={values.val && values.val.reminder}
               />
             </span>
             <ErrorMessage name="reminder" component="span" className="error" />
-            <button className="submitButton" type="submit">
+            <button
+              type="submit"
+              className={
+                !(dirty && isValid)
+                  ? "disabled-btn submitButton"
+                  : "submitButton"
+              }
+              disabled={!(dirty && isValid)}
+            >
               SUBMIT
             </button>
           </Form>
