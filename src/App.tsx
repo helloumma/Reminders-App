@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import Form from "./components/form";
 import "./App.scss";
+import * as Yup from "yup";
 
 interface Values {
   time: string;
   date: string;
   reminder: string;
 }
+
+// ensure reminder is not empty
+const valSchema: Yup.SchemaOf<Values> = Yup.object().shape({
+  time: Yup.string().required("required"),
+  date: Yup.string().required("required"),
+  reminder: Yup.string().required("required"),
+});
 
 const App = () => {
   const [vals, setVals] = useState<Values>({
@@ -24,7 +32,7 @@ const App = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log({ vals });
     await fetch("http://localhost:3001/send", {
       method: "POST",
@@ -60,6 +68,7 @@ const App = () => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         val={vals}
+        valSchema={valSchema}
       />
     </div>
   );
